@@ -10,7 +10,7 @@ class Animal {
     }
 
     void makeSound() {
-        System.out.print(name + age + ":");
+        System.out.print("sound");
     }
 }
 
@@ -45,18 +45,36 @@ class Monkey extends Animal {
     }
 }
 
+class Zoo {
+    Animal[] animals;
+    int count;
+
+    public Zoo(int capcity) {
+        this.animals = new Animal[capcity];
+        this.count = 0;
+    }
+
+    void addAnimal(Animal animal) {
+        if (count < animals.length) {
+            animals[count++] = animal;
+        }
+    }
+
+    public void feedingTime() {
+        for (int i = 0; i < count; i++) {
+            animals[i].makeSound();
+        }
+    }
+
+}
 
 public class Practice4 {
     public static void main(String[] args) {
-        Animal[] animals = {
-                new Lion("사자", "심바"),
-                new Elephant("코끼리", "덤보"),
-                new Monkey("원숭이", "조조"),
-        };
 
-        System.out.println("==== 먹이 시간 ====");
-        for (Animal animal : animals) {
-            animal.makeSound();
-        }
+        Zoo z = new Zoo(10);
+        z.addAnimal(new Lion ("사자", "심바"));
+        z.addAnimal(new Elephant ("코끼리", "덤보"));
+        z.addAnimal(new Monkey("원숭이", "조조"));
+        z.feedingTime();
     }
 }

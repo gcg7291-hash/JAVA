@@ -21,6 +21,7 @@ class ActionMovie extends Movie {
         super(title, rating);
         this.specialEffects = specialEffects;
     }
+    @Override
     void displayInfo() {
         System.out.print("[액션] ");
         super.displayInfo(); // 부모의 기본 정보 출력 (제목, 평점)
@@ -35,7 +36,7 @@ class Comedy extends Movie {
         super(title, rating);
         this.humorStyle = humorStyle;
     }
-
+    @Override
     void displayInfo() {
         System.out.print("[코미디] ");
         super.displayInfo();
@@ -50,7 +51,7 @@ class Drama extends Movie {
         super(title, rating);
         this.theme = theme;
     }
-
+    @Override
     void displayInfo() {
         System.out.print("[드라마] ");
         super.displayInfo();
